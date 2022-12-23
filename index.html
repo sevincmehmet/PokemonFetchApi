@@ -12,160 +12,37 @@
 
 <body>
 
-    <div class="container">
-        <!-- cardlarım -->
-        <!-- <div class="card">
-            <ul>
-                <li>
-                    <div class="card-header">
-                        <i class="pvet fa-solid fa-chevron-left"></i>
-                        <div class="title">Mehmet Ali</div>
-                        <i class="star fa-regular fa-star"></i>
+    <div class="header">
+        <div class="logo">
+            <img src="assets/poke-logo.png" width="25%" alt="">
+        </div>
+        <div class="search-div">
+            <i style="color:rgb(255, 255, 255);cursor: pointer;padding-right: 7px; font-size:large;"
+                class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="searche" id="searchInp" onkeyup="searchFunc()"
+                placeholder="Enter the name of the product" title="Type in a name">
 
-                    </div>
-                </li>
-                <li>
-                    <div class="image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/102.svg"
-                            alt="pokemon resmi">
-                    </div>
-                </li>
-                <li>
-                    <div class="contend-section">
-                        <div class="contend-nav">
-                            <ul>
-                                <li>
-                                    <strong class="isActive" id="about">About</strong>
-                                </li>
-                                <li>
-                                    <strong class="" id="stats">Stats</strong>
-                                </li>
-                                <li>
-                                    <strong class="" id="moves">Moves</strong>
-                                </li>
-                                <li>
-                                    <strong class="" id="evolution">Evolution</strong>
-                                </li>
-                            </ul>
-                        </div>
-                        <div style="display: none;" class="stats">
-                            <ul class="">
-                                <li>
-                                    <strong>HP</strong>
-                                </li>
-                                <li>
-                                    <strong>Attack</strong>
-                                </li>
-                                <li>
-                                    <strong>Sp. Attack</strong>
-                                </li>
-                                <li>
-                                    <strong>Sp. Defance</strong>
-                                </li>
-                                <li>
-                                    <strong>Speed</strong>
-                                </li>
-                            </ul>
-                            <ul class="container-stats-ratio">
-                                <li>
-                                    <div class="stats-ratio">
-                                        <div class="ratio ${this.oIndex}" style="width: 45%"></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="stats-ratio">
-                                        <div class="ratio ${this.oIndex}" style="width: 55%"></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="stats-ratio">
-                                        <div class="ratio ${this.oIndex}" style="width: 70%"></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="stats-ratio">
-                                        <div class="ratio ${this.oIndex}" style="width: 85%"></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="stats-ratio">
-                                        <div class="ratio ${this.oIndex}" style="width: 5%"></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div style="display: none;" class="about">
-                            <div class="article">
-                                <strong>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ex cum eveniet
-                                    rerum. 
-                                </strong>
-                            </div>
-                            <div class="physical">
-                                <strong>
-                                    <ul>
-                                        <li>Category: <strong id="catagory">..</strong></li>
-                                        <li>Height: <strong id="height">..</strong></li>
-                                        <li>Weight: <strong id="weight">..</strong></li>
-                                        <li>Abilities: <strong id="Abilities">..</strong></li>
-                                    </ul>
-                                </strong>
-                            </div>
-                        </div>
-                        <div style="display: none;" class="moves">
-                            <ul class="ulTop">
-                                <li>move1</li>
-                                <li>move2</li>
-                                <li>move3</li>
-                            </ul>
+        </div>
 
-                            <ul class='ulBottom'>
-                                <li>move4</li>
-                                <li>move5</li>
-                            </ul>
-                        </div>
-                        <div class="evolution">
-                            <ul>
-                                <li>
-                                    <strong>
-                                        EVO1 
-                                    </strong>
-                                </li>
+    </div>
 
-                                <li>
-                                    <strong>
-                                        EVO2
-                                    </strong>
-                                </li>
-                        
-                                <li>
-                                    <strong>
-                                        EVO3
-                                    </strong>
-                                </li>
+    <div class="fav-container" style="margin-bottom: 10rem;">
+        <div class="main-title" style="display: none;">
+            <h1>FAVORİLER</h1>
+        </div>
 
-                                <li>
-                                    <strong>
-                                        EVO4
-                                    </strong>
-                                </li>
-
-                                <li>
-                                    <strong>
-                                        EVO5
-                                    </strong>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>  -->
-<!-- 
-        <div class="main-card">
-
+        <!-- <div class="fav-main-card">
+            <div class="fav-card"></div>
+            <div class="fav-card"></div>
+            <div class="fav-card"></div>
         </div> -->
+    </div>
+
+
+    <div class="container">
+        <div class="main-title">
+            <h1>DİĞER</h1>
+        </div>
 
     </div>
     <script src="js/pokemon.js"></script>

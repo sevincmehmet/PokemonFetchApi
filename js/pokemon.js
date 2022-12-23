@@ -1,35 +1,21 @@
 
-class Pokemon {
-    constructor(oParam, oIndex, oEvolution) {
-        this.pokemonDetails = oParam;
-        this.oIndex = oIndex;
-        this.oEvolution = oEvolution;
-
-        this.createCard(this.pokemonDetails);
-    }
-    createCard(pokemonDetails) {
-        var oCard = this.render(pokemonDetails);
-
-        var div = document.createElement("div");
-        div.classList.add("card");
-        div.setAttribute("id", `card-${this.oIndex}`);
-        div.innerHTML = oCard;
-        document.getElementsByClassName("container")[0].appendChild(div);
-    }
-    render(pokemonDetails) {
+class Pokemon{
+  
+    render(pokemonDetails, imgIndex) {
         var newCard = `
         <ul>
             <li>
                 <div class="card-header">
                     <i class="pvet fa-solid fa-chevron-left"></i>
-                    <div class="title">${pokemonDetails.name[0].toUpperCase()+pokemonDetails.name.slice(1).toLowerCase()}</div>
+                    <div class="title">${Object.keys(pokemonDetails).toString()
+                    }</div>
                     <i class="star fa-regular fa-star"></i>
 
                 </div>
             </li>
             <li>
                 <div class="image">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.oIndex}.svg" alt="pokemon resmi">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${imgIndex}.svg" alt="pokemon resmi">
                 </div>
             </li>
             <li>
@@ -37,21 +23,21 @@ class Pokemon {
                     <div class="contend-nav">
                         <ul>
                             <li>
-                                <strong class="isActive" id="1-${this.oIndex}" onclick="isActive(1, ${this.oIndex})" >About</strong>
+                                <strong class="isActive" id="1-${imgIndex}" onclick="isActive(1, ${imgIndex})" >About</strong>
                             </li>
                             <li>
-                                <strong class="" id="2-${this.oIndex}" onclick="isActive(2, ${this.oIndex})" >Stats</strong>
+                                <strong class="" id="2-${imgIndex}" onclick="isActive(2, ${imgIndex})" >Stats</strong>
                             </li>
                             <li>
-                                <strong class="" id="3-${this.oIndex}" onclick="isActive(3, ${this.oIndex})" >Moves</strong>
+                                <strong class="" id="3-${imgIndex}" onclick="isActive(3, ${imgIndex})" >Moves</strong>
                             </li>
                             <li>
-                                <strong class="" id="4-${this.oIndex}" onclick="isActive(4, ${this.oIndex})" >Evolution</strong>
+                                <strong class="" id="4-${imgIndex}" onclick="isActive(4, ${imgIndex})" >Evolution</strong>
                             </li>
                            
                         </ul>
                     </div>
-                    <div id='2-section-${this.oIndex}' style="display:none;" class="stats">
+                    <div id='2-section-${imgIndex}' style="display:none;" class="stats">
                         <ul class="">
                             <li>
                                 <strong>HP</strong>
@@ -72,99 +58,74 @@ class Pokemon {
                         <ul class="container-stats-ratio">
                             <li>
                                 <div class="stats-ratio">
-                                    <div class="ratio ${this.oIndex}" style="width: ${pokemonDetails.stats[0].base_stat}%" ></div>
+                                    <div class="ratio ${imgIndex}" style="width: ${Object.values(pokemonDetails)[0][0]['stats'][0].hp
+                                }%" ></div>
                                 </div>
                             </li>
                             <li>
                                 <div class="stats-ratio">
-                                    <div class="ratio ${this.oIndex}" style="width: ${pokemonDetails.stats[1].base_stat}%" ></div>
+                                    <div class="ratio ${imgIndex}" style="width: ${Object.values(pokemonDetails)[0][0]['stats'][1].attack}%" ></div>
                                 </div>
                             </li>
                             <li>
                                 <div class="stats-ratio">
-                                    <div class="ratio ${this.oIndex}" style="width: ${pokemonDetails.stats[3].base_stat}%" ></div>
+                                    <div class="ratio ${imgIndex}" style="width: ${Object.values(pokemonDetails)[0][0]['stats'][2]}%" ></div>
                                 </div>
                             </li>
                             <li>
                                 <div class="stats-ratio">
-                                    <div class="ratio ${this.oIndex}" style="width: ${pokemonDetails.stats[4].base_stat}%" ></div>
+                                    <div class="ratio ${imgIndex}" style="width: ${Object.values(pokemonDetails)[0][0]['stats'][3].spDefance}%" ></div>
                                 </div>
                             </li>
                             <li>
                                 <div class="stats-ratio">
-                                    <div class="ratio ${this.oIndex}" style="width: ${pokemonDetails.stats[5].base_stat}%" ></div>
+                                    <div class="ratio ${imgIndex}" style="width: ${Object.values(pokemonDetails)[0][0]['stats'][3].spDefance}%" ></div>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <div id='1-section-${this.oIndex}' style="display: block;" class="about">
+                    <div id='1-section-${imgIndex}' style="display: block;" class="about">
                     <div class="article">
                         <strong>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ex cum eveniet
-                            rerum. 
+                            ${Object.values(pokemonDetails)[0][0]['about'][0].text}
                         </strong>
                     </div>
                     <div class="physical">
                         <strong>
                             <ul>
-                                <li>Category: <strong id="catagory">${pokemonDetails.types[0].type.name}</strong></li>
-                                <li>Height: <strong id="height">${pokemonDetails.height}</strong></li>
-                                <li>Weight: <strong id="weight">${pokemonDetails.weight}</strong></li>
-                                <li>Abilities: <strong id="abilities-${this.oIndex}">${pokemonDetails.abilities[0]?.ability.name},${pokemonDetails.abilities[1]?.ability.name}</strong></li>
+                                <li>Category: <strong id="catagory">${Object.values(pokemonDetails)[0][0]['about'][1].catagory}</strong></li>
+                                <li>Height: <strong id="height">${Object.values(pokemonDetails)[0][0]['about'][2].height} m</strong></li>
+                                <li>Weight: <strong id="weight">${Object.values(pokemonDetails)[0][0]['about'][3].weight} kg</strong></li>
                             </ul>
                         </strong>
                     </div>
                 </div>
-                <div style="display: none;" class="moves">
+                <div id="3-section-${imgIndex}" style="display: none;" class="moves">
                             <ul class="ulTop">
                                 <li>
-                                    ${pokemonDetails.moves[0]?.move.name}
+                                    ${Object.values(pokemonDetails)[0][0]['moves'][0].mv1}
                                 </li>
                                 <li>
-                                    ${pokemonDetails.moves[1]?.move.name}
+                                    t${Object.values(pokemonDetails)[0][0]['moves'][1].mv1}
                                 </li>
                                 <li>
-                                    ${pokemonDetails.moves[2]?.move.name}
+                                    ${Object.values(pokemonDetails)[0][0]['moves'][2].mv1}
                                 </li>
                             </ul>
 
                             <ul class='ulBottom'>
                                 <li>
-                                    ${pokemonDetails.moves[3]?.move.name}
+                                    ${Object.values(pokemonDetails)[0][0]['moves'][3].mv1}
                                 </li>
                                 <li>
-                                    ${pokemonDetails.moves[4]?.move.name}
+                                    ${Object.values(pokemonDetails)[0][0]['moves'][4].mv1}
                                 </li>
                             </ul>
                         </div>
-                        <div style="display:none;" class="evolution">
-                            <ul>
-                                <li id="evo-1">
-                                    <strong>
-                                        EVO1
-                                    </strong>
-                                </li>
-
-                                <li id="evo-2">
-                                    <strong>
-                                        EVO2
-                                    </strong>
-                                </li>
-                        
-                                <li id="evo-3">
-                                    <strong>
-                                        EVO3
-                                    </strong>
-                                </li>
-
-                              
-                            </ul>
-                        </div>
-                </div>
-            </li>
-
-        </ul>
+                    </li>
+                </ul>
 `
         return newCard;
     }
 }
+    
